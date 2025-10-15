@@ -8,18 +8,48 @@
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Antrian Desain Grafis</h1>
-            <p>Cek status pesanan Anda di sini secara real-time.</p>
-        </header>
-        
-        <main id="order-list">
-            </main>
+    <div id="login-screen" class="login-container">
+        <div class="login-box">
+            <h2>Admin Login</h2>
+            <p>Masukkan kredensial untuk mengelola antrian.</p>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button id="login-button">Login</button>
+            <p id="error-message" class="error-hidden">Username atau password salah!</p>
+            <hr>
+            <button id="guest-button" class="guest-mode-button">Lihat Sebagai Tamu</button>
+        </div>
+    </div>
 
-        <footer>
-            <p>Dibuat oleh [Nama Anda]</p>
-        </footer>
+    <div id="main-content" class="hidden">
+        <div class="container">
+            <header>
+                <h1>Antrian Desain Grafis</h1>
+                <p>Cek status pesanan Anda di sini secara real-time.</p>
+                <button id="logout-button" class="admin-only hidden">Logout</button>
+            </header>
+
+            <div id="admin-panel" class="admin-panel admin-only hidden">
+                <h3>Tambah Antrian Baru</h3>
+                <input type="text" id="order-id" placeholder="ID Order (e.g., VCTR-004)">
+                <input type="text" id="order-name" placeholder="Nama Pesanan">
+                <input type="text" id="customer-name" placeholder="Nama Pemesan">
+                <select id="order-status">
+                    <option value="Process">Process</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Done">Done</option>
+                    <option value="Refund">Refund</option>
+                </select>
+                <button id="add-order-button">Tambah ke Antrian</button>
+            </div>
+            
+            <main id="order-list">
+                </main>
+
+            <footer>
+                <p>Dibuat oleh JawirDEV</p>
+            </footer>
+        </div>
     </div>
 
     <script src="data.js"></script>
