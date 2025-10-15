@@ -1,101 +1,120 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-:root {
-    --primary-dark: #0d47a1;  /* Biru Tua */
-    --primary-light: #42a5f5; /* Biru Muda */
-    --background: #f0f4f8;   /* Latar Belakang Abu-abu Kebiruan */
-    --card-bg: #ffffff;
-    --text-dark: #263238;
-    --text-light: #ffffff;
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+/* ===== STYLE UNTUK LOGIN & KONTEN TERSEMBUNYI ===== */
+.hidden {
+    display: none !important;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background);
-    color: var(--text-dark);
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 40px;
-    color: var(--primary-dark);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-.order-card {
-    background-color: var(--card-bg);
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: var(--shadow);
-    padding: 25px;
-    display: grid;
-    grid-template-columns: 1fr 120px;
-    gap: 20px;
-    align-items: center;
-    border-left: 5px solid var(--primary-light);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Animasi untuk setiap card */
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.order-details h2 {
-    font-size: 1.2rem;
-    margin: 0 0 5px 0;
-    color: var(--primary-dark);
-}
-
-.order-details p {
-    margin: 4px 0;
-    color: #555;
-    font-size: 0.9rem;
-}
-
-.order-details .meta {
-    font-size: 0.8rem;
-    color: #777;
+.login-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+.login-box {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-box h2 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.login-box input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+    background-color: #0b3a82;
+}
+
+.guest-mode-button {
+    background-color: var(--primary-light) !important;
+}
+.guest-mode-button:hover {
+    background-color: #3b95e0 !important;
+}
+
+.login-box hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.error-hidden {
+    color: #c62828;
+    margin-top: 10px;
+    visibility: hidden; /* Sembunyikan tapi tetap makan tempat */
+}
+
+
+/* ===== STYLE UNTUK PANEL ADMIN ===== */
+.admin-only {
+    /* akan di-toggle oleh JS */
+}
+
+.admin-panel {
+    background-color: #e3f2fd;
+    border: 1px solid var(--primary-light);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
 }
-
-.status-badge {
-    padding: 8px 12px;
-    border-radius: 20px;
-    font-weight: 700;
-    color: var(--text-light);
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 0.8rem;
+.admin-panel h3 {
+    grid-column: 1 / -1;
+    margin: 0 0 10px 0;
+    color: var(--primary-dark);
+}
+.admin-panel input, .admin-panel select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.admin-panel button {
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    grid-column: 1 / -1;
 }
 
-/* Warna untuk setiap status */
-.status-Process { background-color: var(--primary-light); }
-.status-Done { background-color: #2e7d32; } /* Hijau */
-.status-Pending { background-color: #f9a825; } /* Kuning */
-.status-Refund { background-color: #c62828; } /* Merah */
-
-footer {
-    text-align: center;
-    margin-top: 40px;
-    color: #999;
-    font-size: 0.9rem;
+#logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #c62828;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
 }
